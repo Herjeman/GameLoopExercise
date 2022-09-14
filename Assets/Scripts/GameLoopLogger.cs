@@ -2,27 +2,27 @@ using UnityEngine;
 
 public class GameLoopLogger : MonoBehaviour
 {
-    Transform _parentTransform;
+    GameObject _parent;
 
     private void Awake()
     {
         Debug.Log("Awake" + gameObject.name);
-        _parentTransform = transform.parent.GetComponent<Transform>();
+        //_parent = transform.parent.gameObject;
     }
 
     private void Start()
     {
         Debug.Log(transform.childCount);
 
-        if (transform.childCount == 0)
-        {
-            SetChildName("This is my ChildObject");
-        }
-        else
-        {
-            SetParentName("This is my ParentObject");
-        }
-        Debug.Log("Start" + gameObject.name);
+        //if (transform.childCount > 0)
+        //{
+        //    SetChildName("This is my ChildObject");
+        //}
+        //else
+        //{
+        //    SetParentName("This is my ParentObject");
+        //}
+        //Debug.Log("Start" + gameObject.name);
     }
 
     private void Update()
@@ -47,6 +47,6 @@ public class GameLoopLogger : MonoBehaviour
 
     private void SetParentName(string name)
     {
-        _parentTransform.name = name;
+        _parent.name = name;
     }
 }
